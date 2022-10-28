@@ -13,6 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/*
 Route::get('/', function () {
     return view('welcome');
 });
+*/
+
+Route::get('/',"EmployeeController@index");
+Route::get('/edit/{id}',"EmployeeController@edit");
+Route::get('/show/{id}',"EmployeeController@show");
+Route::post('/create',"EmployeeController@create");
+Route::post('/store',"EmployeeController@store");
+Route::patch('/update/{id}',"EmployeeController@update");
