@@ -19,9 +19,10 @@ Route::get('/', function () {
 });
 */
 
-Route::get('/',"EmployeeController@index");
-Route::get('/edit/{id}',"EmployeeController@edit");
-Route::get('/show/{id}',"EmployeeController@show");
-Route::post('/create',"EmployeeController@create");
-Route::post('/store',"EmployeeController@store");
-Route::patch('/update/{id}',"EmployeeController@update");
+Route::get('/', [\App\Http\Controllers\EmployeeController::class, 'index']);
+Route::get('/edit/{id}', [\App\Http\Controllers\EmployeeController::class, 'edit']);
+Route::get('/show/{id}', [\App\Http\Controllers\EmployeeController::class, 'show']);
+Route::get('/create', [\App\Http\Controllers\EmployeeController::class, 'create']);
+Route::post('/store', [\App\Http\Controllers\EmployeeController::class, 'store']);
+Route::get('/update/{id}',[\App\Http\Controllers\EmployeeController::class, 'update']);
+Route::get('/delete/{id}',[\App\Http\Controllers\EmployeeController::class, 'destroy']);

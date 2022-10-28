@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Employee;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class EmployeeController extends Controller
 {
@@ -37,12 +38,16 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
+
         $employee = new Employee();
         $employee->emp_num = $request->input('emp_num');
         $employee->FirstName = $request->input('FirstName');
         $employee->LastName = $request->input('LastName');
         $employee->age = $request->input('age');
         $employee->department = $request->input('department');
+
+        $employee->save();
+        
 
         return redirect('/');
     }
@@ -88,7 +93,7 @@ class EmployeeController extends Controller
         $employee->LastName = $request->input('LastName');
         $employee->age = $request->input('age');
         $employee->department = $request->input('department');
-        $employee->save()
+        $employee->save();
         return redirect('/');
     }
 
@@ -102,6 +107,6 @@ class EmployeeController extends Controller
     {
         $employee = Employee::find($id);
         $employee->delete();
-        return redirect('/')
+        return redirect('/');
     }
 }
