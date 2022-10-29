@@ -8,16 +8,6 @@ use Illuminate\Support\Facades\DB;
 
 class EmployeeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        $employees = Employee::all();
-        return view('employee',['employees'=>$employees,'layout'=>'index']);
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -28,6 +18,8 @@ class EmployeeController extends Controller
     {
         $employees = Employee::all();
         return view('employee',['employees'=>$employees,'layout'=>'create']);
+
+        
     }
 
     /**

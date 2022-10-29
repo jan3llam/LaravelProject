@@ -32,7 +32,7 @@
                     <img src="Employee.png" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Enter the information of the new employee</h5>
-                        <form action="{{ url('/store') }}" method="post">
+                        <form action="{{ url('employee/store') }}" method="post">
                             @csrf
                             <div class="form-group">
                                 <label>Employee Number</label>
@@ -86,7 +86,7 @@
                 <div class="card mb-3">
                     <div class="card-body">
                         <h5 class="card-title">Update information of employee</h5>
-                        <form action="{{ url('/update/'.$employee->id) }}" method="put">
+                        <form action="{{ url('employee/update/'.$employee->id) }}" method="post">
                             @csrf
                             <div class="form-group">
                                 <label>Employee Number</label>

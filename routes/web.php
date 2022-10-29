@@ -19,10 +19,14 @@ Route::get('/', function () {
 });
 */
 
-Route::get('/', [\App\Http\Controllers\EmployeeController::class, 'index']);
+Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
 Route::get('/edit/{id}', [\App\Http\Controllers\EmployeeController::class, 'edit']);
-Route::get('/show/{id}', [\App\Http\Controllers\EmployeeController::class, 'show']);
 Route::get('/create', [\App\Http\Controllers\EmployeeController::class, 'create']);
-Route::post('/store', [\App\Http\Controllers\EmployeeController::class, 'store']);
-Route::get('/update/{id}',[\App\Http\Controllers\EmployeeController::class, 'update']);
-Route::get('/delete/{id}',[\App\Http\Controllers\EmployeeController::class, 'destroy']);
+
+
+Route::prefix("/employee")->group(function(){
+    Route::get('/show/{id}', [\App\Http\Controllers\EmployeeController::class, 'show']);
+    Route::post('/store', [\App\Http\Controllers\EmployeeController::class, 'store']);
+    Route::post('/delete/{id}',[\App\Http\Controllers\EmployeeController::class, 'destroy']);
+    Route::post('/update/{id}',[\App\Http\Controllers\EmployeeController::class, 'update']);
+});

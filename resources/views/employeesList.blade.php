@@ -17,9 +17,13 @@
         <td>{{ $employee->age }}</td>
         <td>{{ $employee->department }}</td>
         <td>
-          <a href="{{ url('/show/'.$employee->id) }}" class="btn btn-sm btn-info">Show</a>
+          
+          <a href="{{ url('employee/show/'.$employee->id) }}" class="btn btn-sm btn-info">Show</a>
            <a href="{{ url('/edit/'.$employee->id) }}" class="btn btn-sm btn-warning">Edit</a>
-           <a href="{{ url('/delete/'.$employee->id) }}" class="btn btn-sm btn-danger">Delete</a>
+           <form action="{{ url('employee/delete/'.$employee->id) }}" method="post">
+            @csrf
+              <button type ="submit" class="btn btn-sm btn-danger">Delete</button>
+          </form>  
         </td>
     </tr>
   </tbody>
